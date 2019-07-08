@@ -1,0 +1,2 @@
+查找使用Swap进程
+for i in /proc/*/status;do awk '/VmSwap|Name|^Pid/{printf $2 " " $3}END{print " "}' $i;done|sort -rn -k 3 |head -n 100 |column -t
